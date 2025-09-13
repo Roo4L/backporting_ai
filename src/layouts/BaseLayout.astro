@@ -1,0 +1,41 @@
+---
+const { title = 'Backporting.ai', description = 'Patch backporting automation: resources and digests.' } = Astro.props;
+---
+<!doctype html>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body class="h-full bg-white text-slate-900">
+    <header class="border-b bg-white/80 backdrop-blur">
+      <div class="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
+        <a href="/" class="text-xl font-semibold bg-gradient-to-r from-sky-700 to-indigo-700 bg-clip-text text-transparent">Backporting.ai</a>
+        <nav class="space-x-6 text-sm">
+          <a class="text-slate-700 hover:text-sky-700" href="/articles">Articles</a>
+          <a class="text-slate-700 hover:text-sky-700" href="/digests">Digests</a>
+        </nav>
+      </div>
+    </header>
+    <main class="mx-auto max-w-6xl px-4 py-12">
+      <slot />
+    </main>
+    <footer class="border-t border-slate-200 bg-white">
+      <div class="mx-auto max-w-6xl px-4 py-6 text-sm text-slate-600">
+        <p>
+          © {new Date().getFullYear()} Backporting.ai · Curated resources on patch backporting automation.
+        </p>
+      </div>
+    </footer>
+  </body>
+  <style is:global>
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+  </style>
+</html>
+
+

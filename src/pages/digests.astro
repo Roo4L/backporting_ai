@@ -1,0 +1,28 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import digests from "../data/digests.json";
+---
+<BaseLayout title="Digests – Backporting.ai" description="Periodic digests for patch backporting automation.">
+  <div class="prose max-w-none">
+    <h1>Digests</h1>
+    <p>Periodic roundups with highlights and commentary.</p>
+  </div>
+
+  <ul class="mt-8 divide-y">
+    {digests.map((d) => (
+      <li class="py-4">
+        <div class="flex items-baseline justify-between gap-3">
+          <a href={`/digests/${d.slug}`} class="font-medium hover:underline">
+            {d.title}
+          </a>
+          <div class="text-xs text-slate-500 flex items-center gap-3">
+            <span>No. {d.number}</span>
+            <time datetime={d.date}>{d.date}</time>
+          </div>
+        </div>
+      </li>
+    ))}
+  </ul>
+</BaseLayout>
+
+

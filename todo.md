@@ -1,0 +1,1 @@
+- [ ] Add interface for additing article via link (let ai parse the link and prepare everything else itself)

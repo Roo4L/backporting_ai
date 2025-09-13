@@ -1,0 +1,35 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import articles from "../data/resources.json";
+---
+<BaseLayout title="Articles – Backporting.ai" description="Curated articles and resources on patch backporting automation.">
+  <div class="prose max-w-none">
+    <h1>Articles</h1>
+    <p>Curated research papers, blog posts, OSS projects, company releases, and more.</p>
+  </div>
+
+  <ul class="mt-8 divide-y">
+    {articles.map((item) => (
+      <li class="py-4">
+        <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+          <a href={item.url} target="_blank" rel="noopener noreferrer" class="font-medium hover:underline">
+            {item.title || item.url}
+          </a>
+          <span class="text-xs text-slate-500">{item.source}</span>
+        </div>
+        {item.authors && item.authors.length > 0 && (
+          <div class="text-sm text-slate-600 mt-1">{item.authors.join(", ")}</div>
+        )}
+        {item.tags && item.tags.length > 0 && (
+          <div class="mt-2 text-xs text-slate-500">
+            {item.tags.map((t) => (
+              <span class="mr-2">#{t}</span>
+            ))}
+          </div>
+        )}
+      </li>
+    ))}
+  </ul>
+</BaseLayout>
+
+

@@ -1,0 +1,54 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+<BaseLayout title="Backporting.ai – Home" description="All about patch backporting automation: articles and digests.">
+  <section class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-sky-600 to-indigo-700 px-6 py-16 sm:py-20 text-white shadow-sm">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.12),transparent_40%)]"></div>
+    <div class="relative z-10 max-w-3xl mx-auto text-center">
+      <h1 class="text-3xl sm:text-5xl font-semibold leading-tight">
+        Patch Backporting Automation
+      </h1>
+      <p class="mt-4 text-base sm:text-lg text-sky-100">
+        A curated hub for research, blog posts, open‑source projects, and periodic digests
+        focused on automating patch backports. Discover what matters, stay updated, and dive
+        deeper into the evolving ecosystem.
+      </p>
+    </div>
+  </section>
+
+  <div class="mt-10 grid gap-6 sm:grid-cols-2">
+    <a href="/articles" class="relative overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-r from-sky-50 to-cyan-50 p-8 sm:p-10 text-center text-slate-900 shadow-sm transition hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-300 focus:ring-offset-2">
+      <div class="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top_left,white,transparent_40%)]"></div>
+      <div class="relative z-10">
+        <h2 class="text-2xl font-semibold">Articles</h2>
+        <p class="mt-2 text-sm text-slate-600">Curated references from the community — papers, posts, releases, and OSS.</p>
+        <span class="mt-4 inline-flex items-center justify-center gap-2 text-sm font-medium">Explore<span aria-hidden>→</span></span>
+      </div>
+    </a>
+    <a href="/digests" class="relative overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-r from-indigo-50 to-violet-50 p-8 sm:p-10 text-center text-slate-900 shadow-sm transition hover:shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:ring-offset-2">
+      <div class="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top_left,white,transparent_40%)]"></div>
+      <div class="relative z-10">
+        <h2 class="text-2xl font-semibold">Digests</h2>
+        <p class="mt-2 text-sm text-slate-600">Editorial roundups by Backporting.ai authors — quick highlights and context.</p>
+        <span class="mt-4 inline-flex items-center justify-center gap-2 text-sm font-medium">Read latest<span aria-hidden>→</span></span>
+      </div>
+    </a>
+  </div>
+
+  <section class="mt-14">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-2xl font-semibold text-slate-900">Website goals</h2>
+      <p class="mt-3 text-slate-600">Backporting.ai brings together knowledge and people working on patch backporting automation.</p>
+      <div class="mt-6 inline-block text-left">
+        <ul class="list-disc pl-6 space-y-2 text-slate-700">
+          <li>Assemble in one place everything about patch backporting automation — articles, research papers, blog posts, open‑source projects, and company releases.</li>
+          <li>Keep interested people updated with important developments (via periodic email digests).</li>
+          <li>Provide a platform where researchers can share their work.</li>
+          <li>Connect people in the field to collaborate, review, and discuss.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+

@@ -1,0 +1,33 @@
+[
+  {
+    "id": "2025-09-13-weekly-001",
+    "slug": "weekly-001",
+    "number": 1,
+    "title": "Backporting.ai Digest – Initial Summary",
+    "date": "2025-09-13",
+    "summary": "Kickoff digest summarizing current resources on patch backporting automation.",
+    "content": "This inaugural digest highlights emerging work relevant to automating patch backports.\n\n- Zero-shot patch porting research explores LLM-assisted backporting across hard forks.\n- Robust summarization and domain adaptation benchmarks are maturing, useful for change logs.\n\nWe expect near-term gains by combining retrieval over code history with LLM planning for patch selection and adaptation.",
+    "entries": [
+      {
+        "title": "Automating Zero-Shot Patch Porting for Hard Forks",
+        "url": "https://arxiv.org/abs/2404.17964",
+        "summary": "Research explores automating zero-shot patch porting in the context of hard forks, indicating promise for LLM-assisted backporting workflows.",
+        "tags": ["research", "patch-porting", "hard-forks", "LLM"]
+      },
+      {
+        "title": "AdaptEval: Evaluating Large Language Models on Domain Adaptation for Text Summarization",
+        "url": "https://arxiv.org/abs/2407.11591",
+        "summary": "Benchmarks domain adaptation for summarization; relevant for building robust summarizers for change logs and patches.",
+        "tags": ["evaluation", "summarization", "domain-adaptation", "LLM"]
+      },
+      {
+        "title": "IEEE Xplore document 11052825",
+        "url": "https://ieeexplore.ieee.org/document/11052825",
+        "summary": "Paper from IEEE Xplore touching on software engineering aspects pertinent to backporting automation.",
+        "tags": ["paper"]
+      }
+    ]
+  }
+]
+
+

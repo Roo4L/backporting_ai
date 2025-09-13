@@ -1,0 +1,39 @@
+[
+  {
+    "title": "Automating Zero-Shot Patch Porting for Hard Forks",
+    "url": "https://arxiv.org/abs/2404.17964",
+    "source": "arXiv",
+    "year": 2024,
+    "authors": [
+      "Shengyi Pan",
+      "You Wang",
+      "Zhongxin Liu",
+      "Xing Hu",
+      "Xin Xia",
+      "Shanping Li"
+    ],
+    "tags": ["research", "patch-porting", "hard-forks", "LLM"]
+  },
+  {
+    "title": "AdaptEval: Evaluating Large Language Models on Domain Adaptation for Text Summarization",
+    "url": "https://arxiv.org/abs/2407.11591",
+    "source": "arXiv",
+    "year": 2024,
+    "authors": [
+      "Anum Afzal",
+      "Ribin Chalumattu",
+      "Florian Matthes",
+      "Laura Mascarell"
+    ],
+    "tags": ["evaluation", "summarization", "domain-adaptation", "LLM"]
+  },
+  {
+    "title": "IEEE Xplore document 11052825",
+    "url": "https://ieeexplore.ieee.org/document/11052825",
+    "source": "IEEE Xplore",
+    "authors": [],
+    "tags": ["paper"]
+  }
+]
+
+

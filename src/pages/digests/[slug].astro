@@ -1,0 +1,58 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import digests from "../../data/digests.json";
+
+export const getStaticPaths = () => {
+  return (digests as any[]).map((d) => ({
+    params: { slug: d.slug },
+    props: { digest: d }
+  }));
+};
+
+const { digest } = Astro.props as { digest: any };
+---
+<BaseLayout title={`${digest.title}`} description={`Digest No. ${digest.number} – ${digest.date}`}>
+  <article class="prose max-w-none">
+    <h1>{digest.title}</h1>
+    <p class="text-sm text-slate-500">No. {digest.number} · <time datetime={digest.date}>{digest.date}</time></p>
+
+    {digest.summary && (
+      <p class="mt-4">{digest.summary}</p>
+    )}
+
+    {digest.content && (
+      <div class="mt-6">
+        {digest.content}
+      </div>
+    )}
+
+    {digest.entries && digest.entries.length > 0 && (
+      <section class="mt-10">
+        <h2>References</h2>
+        <ul class="mt-2 divide-y">
+          {digest.entries.map((e) => (
+            <li class="py-3">
+              <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+                <a href={e.url} target="_blank" rel="noopener noreferrer" class="font-medium hover:underline">
+                  {e.title || e.url}
+                </a>
+              </div>
+              {e.summary && (
+                <div class="text-sm text-slate-700 mt-1">{e.summary}</div>
+              )}
+              {e.tags && e.tags.length > 0 && (
+                <div class="mt-2 text-xs text-slate-500">
+                  {e.tags.map((t) => (
+                    <span class="mr-2">#{t}</span>
+                  ))}
+                </div>
+              )}
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+  </article>
+</BaseLayout>
+
+
