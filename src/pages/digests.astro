@@ -1,6 +1,13 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import digests from "../data/digests.json";
+// Sort digests by date (newest first) and prepare recent slice
+const sortedDigests = (digests as any[]).slice().sort((a, b) => {
+  const aDate = new Date(a.date).getTime();
+  const bDate = new Date(b.date).getTime();
+  return bDate - aDate;
+});
+const recentDigests = sortedDigests.slice(0, 5);
 ---
 <BaseLayout title="Digests – Backporting.ai" description="Periodic digests for patch backporting automation.">
   <div class="prose max-w-none">
@@ -8,21 +15,46 @@ import digests from "../data/digests.json";
     <p>Periodic roundups with highlights and commentary.</p>
   </div>
 
-  <ul class="mt-8 divide-y">
-    {digests.map((d) => (
-      <li class="py-4">
-        <div class="flex items-baseline justify-between gap-3">
-          <a href={`/digests/${d.slug}`} class="font-medium hover:underline">
-            {d.title}
-          </a>
-          <div class="text-xs text-slate-500 flex items-center gap-3">
-            <span>No. {d.number}</span>
-            <time datetime={d.date}>{d.date}</time>
+  <section class="mt-8">
+    <h2 class="sr-only">Recent digests</h2>
+    <div class="overflow-x-auto">
+      <ul class="flex gap-4 pb-2 min-w-max">
+        {recentDigests.map((d) => (
+          <li class="w-72 shrink-0">
+            <a href={`/digests/${d.slug}`} class="block h-full rounded-xl border border-slate-200 bg-white p-4 hover:shadow-sm transition">
+              <div class="flex items-baseline justify-between gap-3">
+                <div class="font-medium">{d.title}</div>
+                <div class="text-xs text-slate-500 text-right">
+                  <div>No. {d.number}</div>
+                  <time datetime={d.date}>{d.date}</time>
+                </div>
+              </div>
+              <p class="mt-2 text-sm text-slate-700">{d.summary || "No summary provided"}</p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="mt-10">
+    <h2 class="text-base font-semibold">All digests</h2>
+    <ul class="mt-4 divide-y">
+      {sortedDigests.map((d) => (
+        <li class="py-4">
+          <div class="flex items-baseline justify-between gap-3">
+            <a href={`/digests/${d.slug}`} class="font-medium hover:underline">
+              {d.title}
+            </a>
+            <div class="text-xs text-slate-500 flex items-center gap-3">
+              <span>No. {d.number}</span>
+              <time datetime={d.date}>{d.date}</time>
+            </div>
           </div>
-        </div>
-      </li>
-    ))}
-  </ul>
+        </li>
+      ))}
+    </ul>
+  </section>
 </BaseLayout>
 
 
