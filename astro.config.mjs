@@ -6,7 +6,10 @@ export default defineConfig({
   integrations: [tailwind({
     applyBaseStyles: true,
   })],
-  site: 'https://backporting.ai',
+  // Set the public site URL and base path for GitHub Pages project site
+  // If you later add a custom domain, update `site` and remove/adjust `base` accordingly
+  site: 'https://roo4l.github.io/backporting_ai',
+  base: '/backporting_ai/',
 });
 
 
