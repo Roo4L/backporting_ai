@@ -1,6 +1,36 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import articles from "../data/resources.json";
+// Helper utilities for dates and default sorting
+const toDate = (value) => {
+  if (!value && value !== 0) return null;
+  if (typeof value === "number") {
+    if (value >= 1900 && value <= 3000) {
+      return new Date(value, 0, 1);
+    }
+    const dNum = new Date(value);
+    return isNaN(dNum.getTime()) ? null : dNum;
+  }
+  const d = new Date(value);
+  return isNaN(d.getTime()) ? null : d;
+};
+
+const formatDate = (value) => {
+  const d = toDate(value);
+  if (!d) return null;
+  return new Intl.DateTimeFormat("en", {
+    year: "numeric",
+    month: "short",
+    day: "2-digit",
+  }).format(d);
+};
+
+// Default sort: newest by dateAdded (missing values last)
+const sortedArticles = [...articles].sort((a, b) => {
+  const ad = toDate(a.dateAdded)?.getTime() ?? 0;
+  const bd = toDate(b.dateAdded)?.getTime() ?? 0;
+  return bd - ad;
+});
 ---
 <BaseLayout title="Articles – Backporting.ai" description="Curated articles and resources on patch backporting automation.">
   <div class="prose max-w-none">
@@ -8,9 +38,22 @@ import articles from "../data/resources.json";
     <p>Curated research papers, blog posts, OSS projects, company releases, and more.</p>
   </div>
 
-  <ul class="mt-8 divide-y">
-    {articles.map((item) => (
-      <li class="py-4">
+  <div class="mt-6 flex items-center justify-between gap-4">
+    <div class="text-sm text-slate-600">
+      Sort:
+      <label for="sortSelect" class="sr-only">Sort articles</label>
+      <select id="sortSelect" class="ml-2 rounded border border-slate-300 bg-white px-2 py-1 text-sm">
+        <option value="added-desc">Newest on Backporting.ai</option>
+        <option value="added-asc">Oldest on Backporting.ai</option>
+        <option value="published-desc">Newest published</option>
+        <option value="published-asc">Oldest published</option>
+      </select>
+    </div>
+  </div>
+
+  <ul id="articlesList" class="mt-4 divide-y">
+    {sortedArticles.map((item) => (
+      <li class="py-4" data-date-added={item.dateAdded || ""} data-date-published={item.datePublished || item.year || ""}>
         <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
           <a href={item.url} target="_blank" rel="noopener noreferrer" class="font-medium hover:underline">
             {item.title || item.url}
@@ -19,6 +62,20 @@ import articles from "../data/resources.json";
         </div>
         {item.authors && item.authors.length > 0 && (
           <div class="text-sm text-slate-600 mt-1">{item.authors.join(", ")}</div>
+        )}
+        {(item.dateAdded || item.datePublished || item.year) && (
+          <div class="mt-1 text-xs text-slate-500">
+            {item.dateAdded && (
+              <span>Added: {formatDate(item.dateAdded)}</span>
+            )}
+            {(item.dateAdded && (item.datePublished || item.year)) && <span> · </span>}
+            {item.datePublished && (
+              <span>Published: {formatDate(item.datePublished)}</span>
+            )}
+            {!item.datePublished && item.year && (
+              <span>Published: {item.year}</span>
+            )}
+          </div>
         )}
         {item.tags && item.tags.length > 0 && (
           <div class="mt-2 text-xs text-slate-500">
@@ -30,6 +87,83 @@ import articles from "../data/resources.json";
       </li>
     ))}
   </ul>
+
+  <script>
+    const list = document.getElementById('articlesList');
+    const select = document.getElementById('sortSelect');
+
+    const parseMillis = (value) => {
+      if (value === undefined || value === null || value === '') return null;
+      const n = Number(value);
+      if (!Number.isNaN(n) && n >= 1900 && n <= 3000) {
+        return new Date(n, 0, 1).getTime();
+      }
+      const d = new Date(value);
+      const t = d.getTime();
+      return isNaN(t) ? null : t;
+    };
+
+    const applySort = (mode) => {
+      const items = Array.from(list.children).filter(el => el.dataset.role !== 'separator');
+      const comparer = {
+        'added-desc': (a, b) => (parseMillis(b.dataset.dateAdded) ?? -1) - (parseMillis(a.dataset.dateAdded) ?? -1),
+        'added-asc': (a, b) => (parseMillis(a.dataset.dateAdded) ?? Number.MAX_SAFE_INTEGER) - (parseMillis(b.dataset.dateAdded) ?? Number.MAX_SAFE_INTEGER),
+        'published-desc': (a, b) => (parseMillis(b.dataset.datePublished) ?? -1) - (parseMillis(a.dataset.datePublished) ?? -1),
+        'published-asc': (a, b) => (parseMillis(a.dataset.datePublished) ?? Number.MAX_SAFE_INTEGER) - (parseMillis(b.dataset.datePublished) ?? Number.MAX_SAFE_INTEGER),
+      }[mode] || ((a, b) => 0);
+
+      items.sort(comparer).forEach((el) => list.appendChild(el));
+    };
+
+    const getGroupKeyAndLabel = (raw) => {
+      if (!raw) return { key: 'unknown', label: 'Unknown' };
+      if (/^\d{4}$/.test(raw)) return { key: raw, label: raw };
+      const ts = parseMillis(raw);
+      if (ts === null) return { key: 'unknown', label: 'Unknown' };
+      const d = new Date(ts);
+      const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
+      const label = d.toLocaleString('en', { month: 'long', year: 'numeric' });
+      return { key, label };
+    };
+
+    const rebuildGroups = (mode) => {
+      // Remove existing separators
+      Array.from(list.querySelectorAll('li[data-role="separator"]')).forEach(el => el.remove());
+
+      const isAdded = mode.startsWith('added');
+      let lastKey = null;
+      const items = Array.from(list.children).filter(el => el.dataset.role !== 'separator');
+      items.forEach((el) => {
+        const raw = isAdded ? el.dataset.dateAdded : el.dataset.datePublished;
+        const { key, label } = getGroupKeyAndLabel(raw);
+        if (key !== lastKey) {
+          const sep = document.createElement('li');
+          sep.dataset.role = 'separator';
+          sep.className = 'py-2 text-xs uppercase tracking-wide text-slate-500 font-semibold';
+          sep.textContent = label;
+          list.insertBefore(sep, el);
+          lastKey = key;
+        }
+      });
+    };
+
+    // Initialize from URL if present
+    const params = new URLSearchParams(window.location.search);
+    const initial = params.get('sort') || 'added-desc';
+    select.value = initial;
+    applySort(initial);
+    rebuildGroups(initial);
+
+    select.addEventListener('change', () => {
+      const value = select.value;
+      applySort(value);
+      rebuildGroups(value);
+      const url = new URL(window.location.href);
+      url.searchParams.set('sort', value);
+      window.history.replaceState({}, '', url);
+    });
+  </script>
+
 </BaseLayout>
 
 

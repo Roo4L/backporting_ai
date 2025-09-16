@@ -4,6 +4,8 @@
     "url": "https://arxiv.org/abs/2404.17964",
     "source": "arXiv",
     "year": 2024,
+    "dateAdded": "2025-09-10",
+    "datePublished": "2024-04-27",
     "authors": [
       "Shengyi Pan",
       "You Wang",
@@ -19,6 +21,8 @@
     "url": "https://arxiv.org/abs/2407.11591",
     "source": "arXiv",
     "year": 2024,
+    "dateAdded": "2025-09-12",
+    "datePublished": "2024-06-16",
     "authors": [
       "Anum Afzal",
       "Ribin Chalumattu",
@@ -28,9 +32,11 @@
     "tags": ["evaluation", "summarization", "domain-adaptation", "LLM"]
   },
   {
-    "title": "IEEE Xplore document 11052825",
+    "title": "Automated Codebase Reconciliation using Large Language Models",
     "url": "https://ieeexplore.ieee.org/document/11052825",
     "source": "IEEE Xplore",
+    "dateAdded": "2025-09-14",
+    "datePublished": "2025-07-02",
     "authors": [],
     "tags": ["paper"]
   }
