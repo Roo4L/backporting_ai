@@ -99,6 +99,40 @@
       "VRpilot",
       "ablation-study"
     ]
+  },
+  {
+    "title": "Backporting Security Patches of Web Applications: A Prototype Design and Implementation on Injection Vulnerability Patches",
+    "url": "https://www.usenix.org/system/files/sec22-shi.pdf",
+    "source": "USENIX Security",
+    "year": 2022,
+    "dateAdded": "2025-09-23",
+    "datePublished": "2022-08-10",
+    "authors": [
+      "Youkun Shi",
+      "Yuan Zhang",
+      "Tianhan Luo",
+      "Xiangyu Mao",
+      "Yinzhi Cao",
+      "Ziwen Wang",
+      "Yudi Zhao",
+      "Zongan Huang",
+      "Min Yang"
+    ],
+    "tags": [
+      "research",
+      "security",
+      "backporting",
+      "security-patches",
+      "web-applications",
+      "injection",
+      "vulnerabilities",
+      "SKYPORT",
+      "backward-compatibility",
+      "legacy-versions",
+      "patch-selection",
+      "WordPress",
+      "Piwigo"
+    ]
   }
 ]
 
