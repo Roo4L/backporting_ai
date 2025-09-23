@@ -67,6 +67,38 @@
       "search-based",
       "template-guided"
     ]
+  },
+  {
+    "title": "A Case Study of LLM for Automated Vulnerability Repair: Assessing Impact of Reasoning and Patch Validation Feedback",
+    "url": "https://arxiv.org/abs/2405.15690",
+    "source": "arXiv",
+    "year": 2024,
+    "dateAdded": "2025-09-23",
+    "datePublished": "2024-05-24",
+    "authors": [
+      "Ummay Kulsum",
+      "Haotian Zhu",
+      "Bowen Xu",
+      "Marcelo d'Amorim"
+    ],
+    "tags": [
+      "research",
+      "security",
+      "AVR",
+      "program-repair",
+      "LLM",
+      "reasoning",
+      "chain-of-thought",
+      "patch-validation",
+      "feedback",
+      "compiler",
+      "sanitizers",
+      "test-suite",
+      "C",
+      "Java",
+      "VRpilot",
+      "ablation-study"
+    ]
   }
 ]
 
