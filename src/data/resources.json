@@ -39,6 +39,34 @@
     "datePublished": "2025-07-02",
     "authors": [],
     "tags": ["paper"]
+  },
+  {
+    "title": "SoK: Towards Effective Automated Vulnerability Repair",
+    "url": "https://arxiv.org/abs/2501.18820",
+    "source": "arXiv",
+    "year": 2025,
+    "dateAdded": "2025-09-23",
+    "datePublished": "2025-01-31",
+    "authors": [
+      "Ying Li",
+      "Faysal Hossain Shezan",
+      "Bomin Wei",
+      "Gang Wang",
+      "Yuan Tian"
+    ],
+    "tags": [
+      "research",
+      "security",
+      "AVR",
+      "program-repair",
+      "survey",
+      "taxonomy",
+      "benchmarking",
+      "learning-based",
+      "constraint-based",
+      "search-based",
+      "template-guided"
+    ]
   }
 ]
 
