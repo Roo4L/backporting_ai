@@ -9,7 +9,13 @@
       Subscribe to receive our periodic digests on patch backporting automation directly in your inbox.
     </p>
     
-    <form id="newsletter-form" class="mt-4 flex flex-col sm:flex-row gap-3">
+    <form 
+      id="newsletter-form" 
+      action="https://buttondown.email/api/emails/embed-subscribe/backporting-ai"
+      method="post"
+      target="_blank"
+      class="mt-4 flex flex-col sm:flex-row gap-3"
+    >
       <div class="flex-1">
         <label for="email" class="sr-only">Email address</label>
         <input
@@ -34,63 +40,9 @@
 </div>
 
 <script>
-  const form = document.getElementById('newsletter-form') as HTMLFormElement;
-  const emailInput = document.getElementById('email') as HTMLInputElement;
-  const messageDiv = document.getElementById('newsletter-message') as HTMLDivElement;
-  const submitButton = form.querySelector('button[type="submit"]') as HTMLButtonElement;
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    const email = emailInput.value.trim();
-    
-    // Basic email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      showMessage('Please enter a valid email address.', 'error');
-      return;
-    }
-    
-    // Disable form during submission
-    submitButton.disabled = true;
-    submitButton.textContent = 'Subscribing...';
-    messageDiv.classList.add('hidden');
-    
-    try {
-      const response = await fetch('/api/subscribe', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email }),
-      });
-      
-      const data = await response.json();
-      
-      if (response.ok) {
-        showMessage(data.message || 'Successfully subscribed! Check your email to confirm.', 'success');
-        emailInput.value = '';
-      } else {
-        showMessage(data.error || 'Failed to subscribe. Please try again.', 'error');
-      }
-    } catch (error) {
-      showMessage('An error occurred. Please try again later.', 'error');
-    } finally {
-      submitButton.disabled = false;
-      submitButton.textContent = 'Subscribe';
-    }
-  });
-  
-  function showMessage(message: string, type: 'success' | 'error') {
-    messageDiv.textContent = message;
-    messageDiv.classList.remove('hidden', 'text-green-700', 'text-red-700');
-    
-    if (type === 'success') {
-      messageDiv.classList.add('text-green-700');
-    } else {
-      messageDiv.classList.add('text-red-700');
-    }
-  }
+  // Form now submits directly to Buttondown's embed endpoint
+  // No client-side JavaScript needed for the submission itself
+  // This is a simple native form submission compatible with static hosting
 </script>
 
 

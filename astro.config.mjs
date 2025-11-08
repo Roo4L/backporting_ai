@@ -3,7 +3,7 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-  output: 'server', // Enable server-side rendering for API endpoints
+  output: 'static', // Static site generation for GitHub Pages
   integrations: [tailwind({
     applyBaseStyles: true,
   })],
