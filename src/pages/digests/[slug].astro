@@ -1,6 +1,90 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import digests from "../../data/digests.json";
+// Minimal Markdown renderer for headings, paragraphs, and unordered lists.
+// This avoids adding a new dependency while keeping digest content readable.
+function escapeHtml(input: string): string {
+  return input
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#39;');
+}
+
+function renderInlineWithLinks(input: string): string {
+  // Renders inline Markdown links [text](url) while escaping other HTML.
+  // Only http/https links are recognized.
+  const linkRe = /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g;
+  let result = '';
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+  while ((match = linkRe.exec(input)) !== null) {
+    const [full, text, url] = match;
+    const start = match.index;
+    const end = start + full.length;
+    // Escape and append preceding text
+    result += escapeHtml(input.slice(lastIndex, start));
+    // Append safe anchor
+    result += `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer" class="underline decoration-slate-300 hover:decoration-slate-500">${escapeHtml(text)}</a>`;
+    lastIndex = end;
+  }
+  // Append the remainder
+  result += escapeHtml(input.slice(lastIndex));
+  return result;
+}
+
+function renderSimpleMarkdown(markdown: string): string {
+  const html: string[] = [];
+  const lines = markdown.replaceAll('\r\n', '\n').split('\n');
+
+  let paragraphLines: string[] = [];
+  let listItems: string[] = [];
+  const flushParagraph = () => {
+    if (paragraphLines.length > 0) {
+      const content = paragraphLines.map((l) => renderInlineWithLinks(l)).join('<br />');
+      html.push(`<p class="mt-4 leading-relaxed">${content}</p>`);
+      paragraphLines = [];
+    }
+  };
+  const flushList = () => {
+    if (listItems.length > 0) {
+      const items = listItems.map((t) => `<li>${renderInlineWithLinks(t)}</li>`).join('');
+      html.push(`<ul class="mt-4 list-disc pl-6 space-y-1">${items}</ul>`);
+      listItems = [];
+    }
+  };
+
+  for (const raw of lines) {
+    const line = raw.trimEnd();
+    if (/^\s*$/.test(line)) {
+      flushParagraph();
+      flushList();
+      continue;
+    }
+    if (line.startsWith('### ')) {
+      flushParagraph();
+      flushList();
+      html.push(`<h3 class="mt-6 text-xl font-semibold">${renderInlineWithLinks(line.slice(4).trim())}</h3>`);
+      continue;
+    }
+    if (line.startsWith('## ')) {
+      flushParagraph();
+      flushList();
+      html.push(`<h2 class="mt-10 text-2xl font-semibold">${renderInlineWithLinks(line.slice(3).trim())}</h2>`);
+      continue;
+    }
+    if (/^[-*]\s+/.test(line)) {
+      flushParagraph();
+      listItems.push(line.replace(/^[-*]\s+/, ''));
+      continue;
+    }
+    paragraphLines.push(line);
+  }
+  flushParagraph();
+  flushList();
+  return html.join('\n');
+}
 
 export const getStaticPaths = () => {
   return (digests as any[]).map((d) => ({
@@ -9,11 +93,21 @@ export const getStaticPaths = () => {
   }));
 };
 
-const { digest } = Astro.props as { digest: any };
+export const prerender = true;
+
+const props = Astro.props as { digest?: any };
+let digest = props.digest;
+if (!digest) {
+  const slug = Astro.params.slug;
+  digest = (digests as any[]).find((d) => d.slug === slug);
+}
+if (!digest) {
+  Astro.response.status = 404;
+}
 ---
 <BaseLayout title={`${digest.title}`} description={`Digest No. ${digest.number} – ${digest.date}`}>
   <article class="prose max-w-none">
-    <h1>{digest.title}</h1>
+    <h1 class="text-3xl sm:text-4xl font-semibold">{digest.title}</h1>
     <p class="text-sm text-slate-500">No. {digest.number} · <time datetime={digest.date}>{digest.date}</time></p>
 
     {digest.summary && (
@@ -21,9 +115,7 @@ const { digest } = Astro.props as { digest: any };
     )}
 
     {digest.content && (
-      <div class="mt-6">
-        {digest.content}
-      </div>
+      <div class="mt-6 prose max-w-none" set:html={renderSimpleMarkdown(digest.content)} />
     )}
 
     {digest.entries && digest.entries.length > 0 && (

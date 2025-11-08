@@ -133,6 +133,155 @@
       "WordPress",
       "Piwigo"
     ]
+  },
+  {
+    "title": "PortGPT: Towards Automated Backporting Using Large Language Models",
+    "url": "https://arxiv.org/abs/2510.22396",
+    "source": "arXiv",
+    "year": 2025,
+    "dateAdded": "2025-11-08",
+    "datePublished": "2025-10-25",
+    "authors": [
+      "Zhaoyang Li",
+      "Zheng Yu",
+      "Jingyi Song",
+      "Meng Xu",
+      "Yuxuan Luo",
+      "Dongliang Mu"
+    ],
+    "tags": [
+      "research",
+      "backporting",
+      "security-patches",
+      "LLM",
+      "agent",
+      "Linux-kernel",
+      "automated-patching",
+      "IEEE-S&P-2026",
+      "compiler-feedback",
+      "tool-use"
+    ]
+  },
+  {
+    "title": "PatchAgent: A Practical Program Repair Agent Mimicking Human Expertise",
+    "url": "https://www.usenix.org/conference/usenixsecurity25/presentation/yu-zheng",
+    "source": "USENIX Security",
+    "year": 2025,
+    "dateAdded": "2025-11-08",
+    "datePublished": "2025-08-13",
+    "authors": [
+      "Zheng Yu",
+      "Ziyi Guo",
+      "Yuhang Wu",
+      "Jiahao Yu",
+      "Meng Xu",
+      "Dongliang Mu",
+      "Yan Chen",
+      "Xinyu Xing"
+    ],
+    "tags": [
+      "research",
+      "security",
+      "program-repair",
+      "APR",
+      "LLM",
+      "agent",
+      "fault-localization",
+      "patch-generation",
+      "patch-validation",
+      "vulnerabilities",
+      "fuzzing",
+      "language-server",
+      "USENIX-Security-2025",
+      "automated-patching",
+      "tool-use"
+    ]
+  },
+  {
+    "title": "ApkDiffer: Accurate and Scalable Cross-Version Diffing Analysis for Android Applications",
+    "url": "https://yuanxzhang.github.io/paper/apkdiffer-oopsla25.pdf",
+    "source": "OOPSLA",
+    "year": 2025,
+    "dateAdded": "2025-11-08",
+    "datePublished": "2025-10-01",
+    "authors": [
+      "Jiarun Dai",
+      "Mingyuan Luo",
+      "Yuan Zhang",
+      "Min Yang",
+      "Minghui Yang"
+    ],
+    "tags": [
+      "research",
+      "security",
+      "software-diffing",
+      "code-alignment",
+      "Android",
+      "cross-version-analysis",
+      "method-level-diffing",
+      "graph-matching",
+      "binary-analysis",
+      "evolution-analysis",
+      "privacy-threats",
+      "app-updates",
+      "OOPSLA-2025"
+    ]
+  },
+  {
+    "title": "MigGPT: Harnessing Large Language Models for Automated Migration of Out-of-Tree Linux Kernel Patches Across Versions",
+    "url": "https://arxiv.org/abs/2504.09474",
+    "source": "arXiv",
+    "year": 2025,
+    "dateAdded": "2025-11-08",
+    "datePublished": "2025-04-13",
+    "authors": [
+      "Pucheng Dang",
+      "Di Huang",
+      "Dong Li",
+      "Kang Chen",
+      "Yuanbo Wen",
+      "Qi Guo",
+      "Xing Hu"
+    ],
+    "tags": [
+      "research",
+      "patch-migration",
+      "kernel-patches",
+      "out-of-tree",
+      "LLM",
+      "Linux-kernel",
+      "automated-patching",
+      "code-fingerprint",
+      "benchmark"
+    ]
+  },
+  {
+    "title": "Match & Mend: Minimally Invasive Local Reassembly for Patching N-day Vulnerabilities in ARM Binaries",
+    "url": "https://arxiv.org/abs/2510.14384",
+    "source": "arXiv",
+    "year": 2025,
+    "dateAdded": "2025-11-08",
+    "datePublished": "2025-10-18",
+    "authors": [
+      "Sebastian Jänich",
+      "Merlin Sievers",
+      "Johannes Kinder"
+    ],
+    "tags": [
+      "research",
+      "security",
+      "binary-rewriting",
+      "binary-patching",
+      "IoT",
+      "firmware",
+      "ARM",
+      "n-day-vulnerabilities",
+      "automated-patching",
+      "reassembly",
+      "micro-patching",
+      "Linux",
+      "embedded-systems"
+    ]
   }
 ]
 

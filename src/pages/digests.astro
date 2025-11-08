@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import NewsletterSignup from "../components/NewsletterSignup.astro";
 import digests from "../data/digests.json";
 // Sort digests by date (newest first) and prepare recent slice
 const sortedDigests = (digests as any[]).slice().sort((a, b) => {
@@ -14,6 +15,10 @@ const recentDigests = sortedDigests.slice(0, 5);
     <h1>Digests</h1>
     <p>Periodic roundups with highlights and commentary.</p>
   </div>
+
+  <section class="mt-8">
+    <NewsletterSignup />
+  </section>
 
   <section class="mt-8">
     <h2 class="sr-only">Recent digests</h2>

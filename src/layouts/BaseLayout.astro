@@ -25,10 +25,12 @@ const base = import.meta.env.BASE_URL;
       <slot />
     </main>
     <footer class="border-t border-slate-200 bg-white">
-      <div class="mx-auto max-w-6xl px-4 py-6 text-sm text-slate-600">
-        <p>
-          © {new Date().getFullYear()} Backporting.ai · Curated resources on patch backporting automation.
-        </p>
+      <div class="mx-auto max-w-6xl px-4 py-6 text-sm text-slate-600 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <p>© {new Date().getFullYear()} Backporting.ai · Curated resources on patch backporting automation.</p>
+        <div class="flex items-center gap-4">
+          <a href="mailto:hello@backporting.ai" class="hover:text-slate-800">hello@backporting.ai</a>
+          <a href="https://github.com/Roo4L/backporting_ai" class="hover:text-slate-800" rel="noopener noreferrer">GitHub</a>
+        </div>
       </div>
     </footer>
   </body>

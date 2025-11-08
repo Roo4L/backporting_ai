@@ -1,0 +1,7 @@
+---
+alwaysApply: true
+---
+Use Chrome Devtools MCP server for testing any changes related to UI and investigating bugs about it. If you developed some feature related to UI, or you just need to debug something in web, call Chrome Devtools MCP instead of requesting user
+to do that for you. Verify if the site is running and if it's not, request the user to start it.
+
+Do not hesitate to make screenshots if you need. Especially, when you are fixing something visual and have to verify whether it gets rendered as expected or not.
