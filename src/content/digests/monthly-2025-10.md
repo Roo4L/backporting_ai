@@ -1,7 +1,7 @@
 ---
-id: 2025-10-31-monthly-003
+id: 2025-10-31-monthly-001
 slug: monthly-2025-10
-number: 3
+number: 1
 title: "Backporting.ai Digest – October 2025"
 date: "2025-10-31"
 summary: "Quantitative deep dive into three October papers: an agentic LLM system achieving 89% success in kernel backporting (PortGPT), minimally invasive binary micro‑patching on ARM (Match & Mend), and scalable cross‑version diffing for Android apps (ApkDiffer)."
