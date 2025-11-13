@@ -29,7 +29,8 @@ npm run preview
 - `src/pages/api/` – API endpoints (subscription handler)
 - `src/components/` – reusable components (newsletter signup form)
 - `src/layouts/` – base layout and shared styles
-- `src/data/` – JSON data files (digests, resources)
+- `src/content/digests/` – Digest markdown files with frontmatter
+- `src/data/` – Data utilities and resources
 - `scripts/` – utility scripts (send digest emails)
 - `public/` – static assets (e.g., `favicon.svg`)
 - `astro.config.mjs` – Astro configuration
@@ -91,7 +92,7 @@ node scripts/send-digest.js weekly-001
 ```
 
 The script will:
-1. Load the digest from `src/data/digests.json` by slug
+1. Load the digest from `src/content/digests/` by slug
 2. Format it as a markdown email with proper structure
 3. Send it to all confirmed subscribers via Buttondown API
 4. Display confirmation and provide a link to track delivery
@@ -140,7 +141,7 @@ Note: Buttondown handles all email sending infrastructure, so you don't need to 
 - Check browser console for detailed error messages
 
 **Emails not sending:**
-- Verify digest slug exists in `digests.json`
+- Verify digest markdown file exists in `src/content/digests/`
 - Check Buttondown dashboard for account status
 - Ensure you're on a plan that allows sending emails
 
@@ -148,8 +149,39 @@ Note: Buttondown handles all email sending infrastructure, so you don't need to 
 
 A launch configuration is provided under `.vscode/launch.json` to run the Astro dev server.
 
+## Adding New Digests
+
+Create a new markdown file in `src/content/digests/` with the following structure:
+
+```markdown
+---
+id: 2025-MM-DD-type-NNN
+slug: your-slug-here
+number: N
+title: Your Digest Title
+date: YYYY-MM-DD
+summary: Brief summary of the digest
+entries:
+  - title: Resource Title
+    url: https://example.com
+    summary: Description of the resource
+    tags:
+      - tag1
+      - tag2
+---
+
+Your main digest content goes here in markdown format.
+
+## Section Headers
+
+Content can include:
+- Lists
+- Links
+- Formatting
+
+```
+
 ## Next steps (see `TECHNOLOGY.md` / `DESIGN.md`)
 
-- Add content sources: `data/resources.json`, `content/digests/`
 - Add search (Pagefind) and Giscus for comments on digests
 - Add submission flow via GitHub Issues or a simple form

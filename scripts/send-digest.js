@@ -7,7 +7,7 @@
  * Example: node scripts/send-digest.js weekly-001
  * 
  * This script:
- * 1. Reads the specified digest from digests.json
+ * 1. Reads the specified digest from markdown files
  * 2. Formats it as a markdown email
  * 3. Sends it to all subscribers via Buttondown API
  */
@@ -15,6 +15,7 @@
 import { readFileSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
+import { loadDigests } from '../src/data/load-digests.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -60,28 +61,25 @@ if (!digestSlug) {
 }
 
 // Load digests data
-const digestsPath = join(__dirname, '..', 'src', 'data', 'digests.json');
 let digests;
+let digest;
 
 try {
-  const digestsContent = readFileSync(digestsPath, 'utf-8');
-  digests = JSON.parse(digestsContent);
+  digests = await loadDigests();
+  digest = digests.find(d => d.slug === digestSlug);
+  
+  if (!digest) {
+    console.error(`❌ Error: Digest with slug "${digestSlug}" not found.`);
+    console.error('Available digests:');
+    digests.forEach(d => console.error(`  - ${d.slug}: ${d.title}`));
+    process.exit(1);
+  }
+  
+  console.log(`\n📧 Preparing to send digest: ${digest.title}\n`);
 } catch (error) {
-  console.error('❌ Error loading digests.json:', error.message);
+  console.error('❌ Error loading digests:', error.message);
   process.exit(1);
 }
-
-// Find the specified digest
-const digest = digests.find(d => d.slug === digestSlug);
-
-if (!digest) {
-  console.error(`❌ Error: Digest with slug "${digestSlug}" not found.`);
-  console.error('Available digests:');
-  digests.forEach(d => console.error(`  - ${d.slug}: ${d.title}`));
-  process.exit(1);
-}
-
-console.log(`\n📧 Preparing to send digest: ${digest.title}\n`);
 
 // Format digest as markdown email
 function formatDigestEmail(digest) {
@@ -185,7 +183,7 @@ if (process.argv.includes('--preview')) {
 }
 
 // Send the email
-sendEmail();
+await sendEmail();
 
 
 

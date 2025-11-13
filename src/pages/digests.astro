@@ -1,9 +1,10 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import NewsletterSignup from "../components/NewsletterSignup.astro";
-import digests from "../data/digests.json";
+import { loadDigests } from "../data/load-digests.ts";
 // Sort digests by date (newest first) and prepare recent slice
-const sortedDigests = (digests as any[]).slice().sort((a, b) => {
+const digests = await loadDigests();
+const sortedDigests = digests.slice().sort((a, b) => {
   const aDate = new Date(a.date).getTime();
   const bDate = new Date(b.date).getTime();
   return bDate - aDate;

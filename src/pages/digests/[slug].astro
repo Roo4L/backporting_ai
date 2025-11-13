@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import digests from "../../data/digests.json";
+import { loadDigests } from "../../data/load-digests.ts";
+const digests = await loadDigests();
 // Minimal Markdown renderer for headings, paragraphs, and unordered lists.
 // This avoids adding a new dependency while keeping digest content readable.
 function escapeHtml(input: string): string {
@@ -43,14 +44,14 @@ function renderSimpleMarkdown(markdown: string): string {
   const flushParagraph = () => {
     if (paragraphLines.length > 0) {
       const content = paragraphLines.map((l) => renderInlineWithLinks(l)).join('<br />');
-      html.push(`<p class="mt-4 leading-relaxed">${content}</p>`);
+      html.push(`<p class="mt-5 text-base leading-loose">${content}</p>`);
       paragraphLines = [];
     }
   };
   const flushList = () => {
     if (listItems.length > 0) {
-      const items = listItems.map((t) => `<li>${renderInlineWithLinks(t)}</li>`).join('');
-      html.push(`<ul class="mt-4 list-disc pl-6 space-y-1">${items}</ul>`);
+      const items = listItems.map((t) => `<li class="leading-loose">${renderInlineWithLinks(t)}</li>`).join('');
+      html.push(`<ul class="mt-5 list-disc pl-6 space-y-2">${items}</ul>`);
       listItems = [];
     }
   };
@@ -65,13 +66,13 @@ function renderSimpleMarkdown(markdown: string): string {
     if (line.startsWith('### ')) {
       flushParagraph();
       flushList();
-      html.push(`<h3 class="mt-6 text-xl font-semibold">${renderInlineWithLinks(line.slice(4).trim())}</h3>`);
+      html.push(`<h3 class="mt-10 mb-4 text-xl font-semibold text-slate-900">${renderInlineWithLinks(line.slice(4).trim())}</h3>`);
       continue;
     }
     if (line.startsWith('## ')) {
       flushParagraph();
       flushList();
-      html.push(`<h2 class="mt-10 text-2xl font-semibold">${renderInlineWithLinks(line.slice(3).trim())}</h2>`);
+      html.push(`<h2 class="mt-12 mb-4 text-2xl font-semibold text-slate-900">${renderInlineWithLinks(line.slice(3).trim())}</h2>`);
       continue;
     }
     if (/^[-*]\s+/.test(line)) {
@@ -86,8 +87,9 @@ function renderSimpleMarkdown(markdown: string): string {
   return html.join('\n');
 }
 
-export const getStaticPaths = () => {
-  return (digests as any[]).map((d) => ({
+export const getStaticPaths = async () => {
+  const digests = await loadDigests();
+  return digests.map((d) => ({
     params: { slug: d.slug },
     props: { digest: d }
   }));
@@ -99,38 +101,38 @@ const props = Astro.props as { digest?: any };
 let digest = props.digest;
 if (!digest) {
   const slug = Astro.params.slug;
-  digest = (digests as any[]).find((d) => d.slug === slug);
+  digest = digests.find((d) => d.slug === slug);
 }
 if (!digest) {
   Astro.response.status = 404;
 }
 ---
 <BaseLayout title={`${digest.title}`} description={`Digest No. ${digest.number} – ${digest.date}`}>
-  <article class="prose max-w-none">
+  <article class="mx-auto max-w-3xl">
     <h1 class="text-3xl sm:text-4xl font-semibold">{digest.title}</h1>
     <p class="text-sm text-slate-500">No. {digest.number} · <time datetime={digest.date}>{digest.date}</time></p>
 
     {digest.summary && (
-      <p class="mt-4">{digest.summary}</p>
+      <p class="mt-6 text-lg leading-relaxed text-slate-700">{digest.summary}</p>
     )}
 
     {digest.content && (
-      <div class="mt-6 prose max-w-none" set:html={renderSimpleMarkdown(digest.content)} />
+      <div class="mt-8 text-slate-800" set:html={renderSimpleMarkdown(digest.content)} />
     )}
 
     {digest.entries && digest.entries.length > 0 && (
-      <section class="mt-10">
-        <h2>References</h2>
-        <ul class="mt-2 divide-y">
+      <section class="mt-12">
+        <h2 class="text-2xl font-semibold">References</h2>
+        <ul class="mt-4 divide-y divide-slate-200">
           {digest.entries.map((e) => (
-            <li class="py-3">
-              <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-                <a href={e.url} target="_blank" rel="noopener noreferrer" class="font-medium hover:underline">
+            <li class="py-4">
+              <div class="flex flex-col gap-2">
+                <a href={e.url} target="_blank" rel="noopener noreferrer" class="font-medium text-slate-900 hover:text-sky-700 hover:underline">
                   {e.title || e.url}
                 </a>
               </div>
               {e.summary && (
-                <div class="text-sm text-slate-700 mt-1">{e.summary}</div>
+                <div class="text-sm text-slate-600 mt-2 leading-relaxed">{e.summary}</div>
               )}
               {e.tags && e.tags.length > 0 && (
                 <div class="mt-2 text-xs text-slate-500">
