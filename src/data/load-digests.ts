@@ -15,6 +15,8 @@ export interface Digest {
   number: number;
   title: string;
   date: string;
+  author: string;
+  authorUrl?: string;
   summary: string;
   content: string;
   entries: DigestEntry[];
@@ -38,6 +40,8 @@ export async function loadDigests(): Promise<Digest[]> {
       number: data.number,
       title: data.title,
       date: data.date,
+      author: data.author || 'Anonymous',
+      authorUrl: data.authorUrl,
       summary: data.summary,
       content: content.trim(),
       entries: data.entries || [],

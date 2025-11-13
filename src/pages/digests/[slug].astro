@@ -110,7 +110,13 @@ if (!digest) {
 <BaseLayout title={`${digest.title}`} description={`Digest No. ${digest.number} – ${digest.date}`}>
   <article class="mx-auto max-w-3xl">
     <h1 class="text-3xl sm:text-4xl font-semibold">{digest.title}</h1>
-    <p class="text-sm text-slate-500">No. {digest.number} · <time datetime={digest.date}>{digest.date}</time></p>
+    <p class="text-sm text-slate-500">
+      No. {digest.number} · <time datetime={digest.date}>{digest.date}</time> · By {digest.authorUrl ? (
+        <a href={digest.authorUrl} target="_blank" rel="noopener noreferrer" class="text-slate-700 hover:text-sky-700 hover:underline">{digest.author}</a>
+      ) : (
+        <span>{digest.author}</span>
+      )}
+    </p>
 
     {digest.summary && (
       <p class="mt-6 text-lg leading-relaxed text-slate-700">{digest.summary}</p>

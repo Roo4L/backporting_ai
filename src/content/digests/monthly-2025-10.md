@@ -4,7 +4,9 @@ slug: monthly-2025-10
 number: 1
 title: "Backporting.ai Digest – October 2025"
 date: "2025-10-31"
-summary: "Quantitative deep dive into three October papers: an agentic LLM system achieving 89% success in kernel backporting (PortGPT), minimally invasive binary micro‑patching on ARM (Match & Mend), and scalable cross‑version diffing for Android apps (ApkDiffer)."
+author: "Nikita Ivanov"
+authorUrl: "https://deistvitelnobesconechna.blog/"
+summary: "Regular monthly digest about updates in Patch Backporting field"
 entries:
   - title: "PortGPT: Towards Automated Backporting Using Large Language Models"
     url: https://arxiv.org/abs/2510.22396
