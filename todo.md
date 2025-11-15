@@ -1,7 +1,7 @@
 - [x] Append all updates from October
 - [x] Create first digest about October updates
 - [x] Add a mailing list subscription which would notify all users about new digests
-- [ ] Review ChatGPT summaries of must-have before first website release to the public
-- [ ] Verify mailing list token security (must be no leakage of the credentials)
-- [ ] Verify mailing list submission form protection from spam
+- [x] Review ChatGPT summaries of must-have before first website release to the public
+- [x] Verify mailing list token security (must be no leakage of the credentials)
+- [x] Verify mailing list submission form protection from spam
 - [ ] Add interface for additing article via link (let ai parse the link and prepare everything else itself)
