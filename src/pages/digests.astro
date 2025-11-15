@@ -24,7 +24,7 @@ const recentDigests = sortedDigests.slice(0, 5);
   <section class="mt-8">
     <h2 class="sr-only">Recent digests</h2>
     <div class="overflow-x-auto">
-      <ul class="flex gap-4 pb-2 min-w-max">
+      <ul class={`flex gap-4 pb-2 ${recentDigests.length <= 3 ? 'justify-center' : 'min-w-max'}`}>
         {recentDigests.map((d) => (
           <li class="w-72 shrink-0">
             <a href={`${import.meta.env.BASE_URL}digests/${d.slug}`} class="block h-full rounded-xl border border-slate-200 bg-white p-4 hover:shadow-sm transition">
