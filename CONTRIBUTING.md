@@ -67,7 +67,7 @@ We maintain a curated list of articles, research papers, blog posts, and other r
 
 When creating digests:
 - Focus on recent updates and important developments
-- Include 5-10 high-quality entries per digest
+- Include 3-10 high-quality entries per digest
 - Write clear, informative summaries for each entry
 - Use consistent formatting and structure
 - Tag entries appropriately for easy discovery

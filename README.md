@@ -30,20 +30,6 @@ Want to improve the website itself? We welcome technical contributions!
 
 Subscribe to our newsletter to receive periodic digests with the latest developments in automated patch backporting.
 
-## About the Project
-
-Backporting.ai aims to:
-- Centralize information about patch backporting automation
-- Connect researchers and practitioners in the field
-- Provide a platform for sharing new research and tools
-- Keep the community informed about important updates
-
-## Project Goals & Roadmap
-
-For detailed information about our goals and future plans, see:
-- **[DESIGN.md](DESIGN.md)** - Website goals and implementation roadmap
-- **[TECHNOLOGY.md](TECHNOLOGY.md)** - Technical architecture and stack decisions
-
 ## Questions or Feedback?
 
 - Open an issue on [GitHub](https://github.com/yourusername/backporting_ai)
