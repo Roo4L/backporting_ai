@@ -32,7 +32,7 @@ Subscribe to our newsletter to receive periodic digests with the latest developm
 
 ## Questions or Feedback?
 
-- Open an issue on [GitHub](https://github.com/yourusername/backporting_ai)
+- Open an issue on [GitHub](https://github.com/Roo4L/backporting_ai)
 - Check out our [Contributing Guide](CONTRIBUTING.md)
 - Review the [Development Guide](DEVELOPMENT.md) for technical questions
 
