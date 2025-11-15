@@ -1,7 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import NewsletterSignup from "../components/NewsletterSignup.astro";
-import AuthorSection from "../components/AuthorSection.astro";
 ---
 <BaseLayout title="Backporting.ai – Home" description="All about patch backporting automation: articles and digests.">
   <section class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-sky-600 to-indigo-700 px-6 py-16 sm:py-20 text-white shadow-sm">
@@ -17,8 +16,6 @@ import AuthorSection from "../components/AuthorSection.astro";
       </p>
     </div>
   </section>
-
-  <AuthorSection />
 
   <div class="mt-10 grid gap-6 sm:grid-cols-2">
     <a href={`${import.meta.env.BASE_URL}articles`} class="relative overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-r from-sky-50 to-cyan-50 p-8 sm:p-10 text-center text-slate-900 shadow-sm transition hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-300 focus:ring-offset-2">
