@@ -39,3 +39,7 @@ Subscribe to our newsletter to receive periodic digests with the latest developm
 ---
 
 Built with [Astro](https://astro.build) and hosted on [Cloudflare Pages](https://pages.cloudflare.com).
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
