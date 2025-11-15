@@ -10,6 +10,15 @@ const base = import.meta.env.BASE_URL;
     <meta name="description" content={description} />
     <link rel="icon" href={`${base}favicon.svg`} />
     <title>{title}</title>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4CFT2R9P8Y"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4CFT2R9P8Y');
+    </script>
   </head>
   <body class="h-full bg-white text-slate-900">
     <header class="border-b bg-white/80 backdrop-blur">
