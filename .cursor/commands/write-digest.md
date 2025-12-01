@@ -77,6 +77,35 @@ If specific metrics aren't readily available from web searches:
 - Mention scale and scope qualitatively ("large-scale evaluation", "diverse benchmarks")
 - Don't make up numbers—be concrete where possible, descriptive where necessary
 
+## Avoid Unexplained Jargon
+
+### No Name-Dropping Without Context
+Every tool name, metric, acronym, or benchmark must be explained on first use. Readers shouldn't need prior knowledge of the field to understand the digest.
+
+**BAD - Unexplained references:**
+- "a 218.9% improvement over RepairAgent's baseline" (Who is RepairAgent?)
+- "HAFixAgent fixed 175 compared to BIRCH-feedback's 133" (What is BIRCH-feedback?)
+- "achieves a 67% pass@1 rate" (What does pass@1 mean?)
+- "evaluated on Defects4J" (What is Defects4J?)
+- "maps vulnerabilities to CWE categories" (What is CWE?)
+
+**GOOD - Self-explanatory writing:**
+- "a 218.9% improvement over the best prior LLM-based repair agent"
+- "HAFixAgent fixed 175 compared to 133 for the previous best multi-hunk repair tool"
+- "fixes 67% of bugs on the first attempt"
+- "evaluated on the standard benchmark of real-world Java bugs collected from open-source projects"
+- "categorizes each vulnerability by weakness type—input validation flaws, injection bugs, authentication bypasses"
+
+### When Mentioning Baselines or Comparisons
+- Describe what the baseline *is* rather than just naming it
+- If a tool name adds value, explain its approach in the same sentence
+- Prefer descriptive phrases: "the previous best", "existing tools", "prior work"
+
+### Acronyms and Technical Terms
+- Spell out or explain acronyms on first use (APR → "automated program repair")
+- Replace jargon with plain descriptions where possible
+- If a technical term is essential, define it inline
+
 ## Tone and Style Guidelines
 
 ### Be Warm Yet Concise
@@ -147,3 +176,16 @@ Each entry in the `entries` array should include:
 - **title**: Full digest title (e.g., `"Backporting.ai Digest – November 2025"`)
 - **date**: Publication date in `YYYY-MM-DD` format
 - **summary**: One-sentence overview of what's covered in this digest
+
+### Summary Tone
+Keep the summary neutral and informative—just state what the digest covers. Avoid grandiose or marketing-style language.
+
+**BAD - Too epic/hyped:**
+- "Four papers pushing the frontiers of automated program repair"
+- "Groundbreaking advances in kernel patching"
+- "Revolutionary new approaches to vulnerability fixing"
+
+**GOOD - Neutral and factual:**
+- "This month's four papers all focus on automated program repair: history-aware patching, Ruby support, vulnerability benchmarks, and kernel driver migration."
+- "Three research papers on backporting and one new benchmark for vulnerability repair."
+- "Updates on kernel patch automation and a new multilingual security benchmark."
