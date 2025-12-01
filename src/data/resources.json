@@ -282,6 +282,127 @@
       "Linux",
       "embedded-systems"
     ]
+  },
+  {
+    "title": "Collaborative Agents for Automated Program Repair in Ruby",
+    "url": "https://arxiv.org/abs/2511.03925",
+    "source": "arXiv",
+    "year": 2025,
+    "dateAdded": "2025-12-01",
+    "datePublished": "2025-11-06",
+    "authors": [
+      "Nikta Akbarpour",
+      "Mahdieh Sadat Benis",
+      "Fatemeh Hendijani Fard",
+      "Ali Ouni",
+      "Mohamed Aymen Saied"
+    ],
+    "tags": [
+      "research",
+      "program-repair",
+      "APR",
+      "LLM",
+      "multi-agent",
+      "Ruby",
+      "RAMP",
+      "test-driven",
+      "feedback-driven",
+      "XCodeEval"
+    ]
+  },
+  {
+    "title": "HAFixAgent: History-Aware Automated Program Repair Agent",
+    "url": "https://arxiv.org/abs/2511.01047",
+    "source": "arXiv",
+    "year": 2025,
+    "dateAdded": "2025-12-01",
+    "datePublished": "2025-11-02",
+    "authors": [
+      "Yu Shi",
+      "Hao Li",
+      "Bram Adams",
+      "Ahmed E. Hassan"
+    ],
+    "tags": [
+      "research",
+      "program-repair",
+      "APR",
+      "LLM",
+      "agent",
+      "history-aware",
+      "version-control",
+      "git-blame",
+      "multi-hunk",
+      "Defects4J",
+      "agentic-repair"
+    ]
+  },
+  {
+    "title": "PATCHEVAL: A New Benchmark for Evaluating LLMs on Patching Real-World Vulnerabilities",
+    "url": "https://arxiv.org/abs/2511.11019",
+    "source": "arXiv",
+    "year": 2025,
+    "dateAdded": "2025-12-01",
+    "datePublished": "2025-11-14",
+    "authors": [
+      "Zichao Wei",
+      "Jun Zeng",
+      "Ming Wen",
+      "Zeliang Yu",
+      "Kai Cheng",
+      "Yiding Zhu",
+      "Jingyi Guo",
+      "Shiqi Zhou",
+      "Le Yin",
+      "Xiaodong Su",
+      "Zhechao Ma"
+    ],
+    "tags": [
+      "research",
+      "security",
+      "AVR",
+      "benchmark",
+      "LLM",
+      "vulnerability-repair",
+      "CVE",
+      "CWE",
+      "multilingual",
+      "Go",
+      "JavaScript",
+      "Python",
+      "sandbox",
+      "patch-validation"
+    ]
+  },
+  {
+    "title": "LLM-Driven Kernel Evolution: Automating Driver Updates in Linux",
+    "url": "https://arxiv.org/abs/2511.18924",
+    "source": "arXiv",
+    "year": 2025,
+    "dateAdded": "2025-12-01",
+    "datePublished": "2025-11-24",
+    "authors": [
+      "Arina Kharlamova",
+      "Jiawen Liu",
+      "Tianyi Zhang",
+      "Xinrui Yang",
+      "Humaid Alqasimi",
+      "Youcheng Sun",
+      "Chun Jason Xue"
+    ],
+    "tags": [
+      "research",
+      "Linux-kernel",
+      "driver-maintenance",
+      "LLM",
+      "multi-agent",
+      "automated-patching",
+      "benchmark",
+      "kernel-evolution",
+      "API-changes",
+      "DRIVEBENCH",
+      "AUTODRIVER"
+    ]
   }
 ]
 
