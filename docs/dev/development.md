@@ -87,10 +87,10 @@ node scripts/send-digest.js <digest-slug>
 
 ```bash
 # Preview the email before sending
-node scripts/send-digest.js weekly-001 --preview
+node scripts/send-digest.js monthly-2025-10 --preview
 
 # Send the email
-node scripts/send-digest.js weekly-001
+node scripts/send-digest.js monthly-2025-10
 ```
 
 The script will:
