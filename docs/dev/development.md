@@ -65,8 +65,7 @@ BUTTONDOWN_API_KEY=your_api_key_here
 
 **Subscription Flow:**
 - Users enter their email on the homepage or digests page
-- The form submits to `/api/subscribe` endpoint
-- The API validates and adds the subscriber via Buttondown
+- The form submits directly to Buttondown's embed endpoint (no server-side API)
 - Buttondown sends a confirmation email to the subscriber
 - Users must confirm their subscription by clicking the link
 
