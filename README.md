@@ -24,7 +24,7 @@ Have a research paper, blog post, or project related to patch backporting? We'd 
 
 Want to improve the website itself? We welcome technical contributions!
 
-👉 **[Read our Development Guide](DEVELOPMENT.md)** for setup instructions, architecture details, and how to run the site locally.
+👉 **[Read our Development Guide](docs/dev/INDEX.md)** for setup instructions, architecture details, and how to run the site locally.
 
 ### 📧 Stay Updated
 
@@ -34,7 +34,7 @@ Subscribe to our newsletter to receive periodic digests with the latest developm
 
 - Open an issue on [GitHub](https://github.com/Roo4L/backporting_ai)
 - Check out our [Contributing Guide](CONTRIBUTING.md)
-- Review the [Development Guide](DEVELOPMENT.md) for technical questions
+- Review the [Development Guide](docs/dev/INDEX.md) for technical questions
 
 ---
 

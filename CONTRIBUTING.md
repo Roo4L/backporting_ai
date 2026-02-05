@@ -80,7 +80,7 @@ Please be respectful and professional in all interactions. We're building a comm
 
 If you have questions about contributing, please:
 - Open an issue on GitHub
-- Check the [Development Guide](DEVELOPMENT.md) for technical setup
+- Check the [Development Guide](docs/dev/INDEX.md) for technical setup
 - Review existing digests for examples
 
 Thank you for helping make Backporting.ai a valuable resource for the community!
