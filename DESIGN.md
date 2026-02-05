@@ -6,11 +6,10 @@
     - Articles and research papers
     - Blog posts
     - Open source projects
-    - Blog posts
     - Company releases and updates
 * Update interested people on most important updates in the field (some email digest, for example)
 * Provide people doing research in the field a platform for sharing their work
-* Connect people doing research in the field and give the opportunity to collabarate, review, discuss
+* Connect people doing research in the field and give the opportunity to collaborate, review, discuss
 
 ## Action plan / Implementation
 
