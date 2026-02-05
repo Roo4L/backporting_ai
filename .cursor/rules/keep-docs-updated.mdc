@@ -1,0 +1,5 @@
+---
+description: Reminder to keep project documentation up to date after feature development
+alwaysApply: true
+---
+After completing a feature or significant code change, review whether project documentation needs updating. Use the `update-docs` skill for guidance on which files to check and how to maintain them.
