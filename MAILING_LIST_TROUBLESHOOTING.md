@@ -1,14 +1,8 @@
 # Mailing List Troubleshooting Guide
 
-## Current Issue
+## Overview
 
-The subscription form is getting a **500 error** with the message: `"Unexpected end of JSON input"`
-
-This error occurs when the Buttondown API returns an empty or non-JSON response, which typically indicates:
-
-1. **Invalid or missing API key**
-2. **Incorrect API key format**
-3. **API key not being loaded from `.env` file**
+This guide covers common issues with the Buttondown-powered mailing list. The subscription form submits directly to Buttondown's embed endpoint; the `.env` API key is only used by the `send-digest.js` script.
 
 ## Verification Steps
 
@@ -31,7 +25,7 @@ BUTTONDOWN_API_KEY=your_actual_api_key_here
 - No spaces around the `=` sign
 - No quotes around the API key (unless they're part of the actual key)
 - The file is named exactly `.env` (not `.env.txt` or anything else)
-- The file is in the root directory: `/Users/copiedwonder/Projects/backporting_ai/.env`
+- The file is in the project root directory
 
 ### 3. Restart the Dev Server
 
@@ -60,25 +54,6 @@ Replace `YOUR_API_KEY_HERE` with your actual API key.
 - **Success (200)**: Returns a JSON list of subscribers (or empty array `[]`)
 - **401 Unauthorized**: Your API key is invalid
 - **Other errors**: Check the Buttondown status page
-
-### 5. Check Server Logs
-
-With the updated code, the server will now log detailed information. After trying to subscribe:
-
-1. Check your terminal where `npm run dev` is running
-2. Look for these log messages:
-   ```
-   API Key present: true/false
-   API Key length: <number>
-   Making request to Buttondown API...
-   Buttondown response status: <number>
-   Buttondown response body (raw): <response>
-   ```
-
-These logs will tell you:
-- If the API key is being loaded (`API Key present: true`)
-- What status code Buttondown is returning
-- The actual error message from Buttondown
 
 ## Common Issues and Solutions
 
