@@ -5,5 +5,5 @@
 - [x] Verify mailing list token security (must be no leakage of the credentials)
 - [x] Verify mailing list submission form protection from spam
 - [ ] Develop email digesting
-- [ ] Send out November digest to mailing list subsribers
-- [ ] Add interface for additing article via link (let ai parse the link and prepare everything else itself)
+- [ ] Send out digest to mailing list subscribers
+- [ ] Add interface for adding article via link (let AI parse the link and prepare everything else itself)
