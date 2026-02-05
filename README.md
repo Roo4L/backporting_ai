@@ -10,6 +10,7 @@ Patch backporting is the process of applying bug fixes, security patches, or fea
 
 - **[Articles](/articles)**: A curated collection of research papers, blog posts, and technical articles about automated backporting
 - **[Digests](/digests)**: Periodic summaries of the most important updates, releases, and developments in the field
+- **[About](/about)**: Background on the project and its maintainer
 - **Newsletter**: Subscribe to receive digest updates directly in your inbox
 
 ## Get Involved
@@ -38,7 +39,7 @@ Subscribe to our newsletter to receive periodic digests with the latest developm
 
 ---
 
-Built with [Astro](https://astro.build) and hosted on [Cloudflare Pages](https://pages.cloudflare.com).
+Built with [Astro](https://astro.build) and hosted on [GitHub Pages](https://pages.github.com).
 
 ## License
 
