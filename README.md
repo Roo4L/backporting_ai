@@ -25,7 +25,7 @@ Have a research paper, blog post, or project related to patch backporting? We'd 
 
 Want to improve the website itself? We welcome technical contributions!
 
-👉 **[Read our Development Guide](docs/dev/INDEX.md)** for setup instructions, architecture details, and how to run the site locally.
+👉 **[Read our Development Guide](docs/dev/INDEX.md)** for setup instructions, architecture, technology choices, and how to run the site locally.
 
 ### 📧 Stay Updated
 

@@ -17,6 +17,8 @@ slug: your-slug-here
 number: N
 title: Your Digest Title
 date: YYYY-MM-DD
+author: Author Name
+authorUrl: https://author-website.example.com
 summary: Brief summary of the digest
 entries:
   - title: Resource Title

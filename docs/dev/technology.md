@@ -1,6 +1,6 @@
-# 1) Start with a static core, keep a path to “dynamic”
+# 1) Start with a static core, keep a path to "dynamic"
 
-**Why static first?** It’s fast, cheap, secure, SEO-friendly, and perfect for a curated directory + digests. You can still add dynamic pieces (comments, forms, search) via lightweight services or a small backend later.
+**Why static first?** It's fast, cheap, secure, SEO-friendly, and perfect for a curated directory + digests. You can still add dynamic pieces (comments, forms, search) via lightweight services or a small backend later.
 
 **Recommendation (Phase 1):**
 
@@ -16,7 +16,7 @@ This gets you: a content hub, index pages, tags, RSS/Atom/JSONFeed, sitemaps, an
 
 # 2) Data storage: pick Git now, add Postgres later
 
-You’ll have two kinds of data:
+You'll have two kinds of data:
 
 **A. Editorial/curated content (slow-changing):**
 Keep it **in Git** alongside the site. Benefits: versioning, PR review, easy contributions.
@@ -27,7 +27,7 @@ Keep it **in Git** alongside the site. Benefits: versioning, PR review, easy con
 * `data/orgs.yaml` (optional)
 
 **B. Event-/people-centric, query-heavy data (future):**
-When you need richer queries (e.g., “per-author metrics,” deduping, trending), add **Postgres**. I’d use:
+When you need richer queries (e.g., "per-author metrics," deduping, trending), add **Postgres**. I'd use:
 
 * **Supabase** or **Neon** (managed Postgres)
 * Keep a small **FastAPI** or **Next.js API routes** service to expose read APIs to the static site at build time (or use **Astro content collections + server endpoints**).
@@ -50,7 +50,7 @@ You can keep the site static while **pulling** this data during build (or ship J
 * **More marketing features:** **Mailchimp**, **Brevo (Sendinblue)**, **ConvertKit**, **MailerLite**.
 * **Self-host (power + low cost, more ops):** **Listmonk** + **AWS SES**.
 
-**Workflow:** Write digest in MDX → publish → push to newsletter via API → auto-generate RSS/Atom/JSONFeed. You can also schedule “weekly highlights” via a cron (GitHub Actions).
+**Workflow:** Write digest in MDX → publish → push to newsletter via API → auto-generate RSS/Atom/JSONFeed. You can also schedule "weekly highlights" via a cron (GitHub Actions).
 
 ---
 
@@ -58,7 +58,7 @@ You can keep the site static while **pulling** this data during build (or ship J
 
 Pick one (or both) to match your community vibe:
 
-* **GitHub Issues as submissions**: Offer a repo template (“Submit a paper/project”). Pros: transparent, reviewable PRs, great for researchers/devs.
+* **GitHub Issues as submissions**: Offer a repo template ("Submit a paper/project"). Pros: transparent, reviewable PRs, great for researchers/devs.
 * **Form → webhook**: **Tally/Typeform/Google Form** → GitHub Action or a tiny webhook that creates an Issue/PR or a DB row.
 * **Anti-spam:** reCAPTCHA/hCaptcha on public forms; email confirmation if needed.
 
@@ -68,13 +68,13 @@ Moderation flow: submissions land as Issues → triage → convert to PR that ed
 
 # 5) Comments & discussion
 
-Three good paths, ranked by “ops cost”:
+Three good paths, ranked by "ops cost":
 
 1. **Giscus** (GitHub Discussions as comments). Lightweight, no PII stored by you, great moderation.
 2. **Hyvor Talk** (hosted, privacy-friendly), or **Disqus** (ubiquitous but ad/trackers—often avoided).
 3. **Self-host**: **Remark42** (Go), or a minimal in-house comments table (auth required; more ops).
 
-If you want a Hacker-News-style voting board later, consider a small **Postgres** app with **Supabase Auth** (GitHub OAuth) + a simple “stories/comments/votes” schema.
+If you want a Hacker-News-style voting board later, consider a small **Postgres** app with **Supabase Auth** (GitHub OAuth) + a simple "stories/comments/votes" schema.
 
 ---
 
@@ -124,7 +124,7 @@ When this grows, move the pipeline to a small **FastAPI** worker on Fly.io/Rende
 
 * **Types:** research papers, blog posts, OSS repos, company releases, talks, datasets, benchmarks.
 * **Tags:** technique (RAG, AST, IR, synthesis, verification), language (C, C++, Rust, Python), domain (kernel, libraries), tooling (Gerrit, Git, LLVM), evaluation (CodeBLEU, unit tests), etc.
-* **Feeds:** Offer **RSS/Atom/JSONFeed** for “All” and per-tag/tag+type.
+* **Feeds:** Offer **RSS/Atom/JSONFeed** for "All" and per-tag/tag+type.
 
 ---
 
@@ -142,7 +142,7 @@ When this grows, move the pipeline to a small **FastAPI** worker on Fly.io/Rende
 **MVP (Week 1):**
 
 * Astro + Tailwind; deploy to Cloudflare Pages.
-* Content: home, “All resources”, “Digests”, “Submit” page.
+* Content: home, "All resources", "Digests", "Submit" page.
 * Data: `resources.json`, `authors.yaml`.
 * Search: Pagefind.
 * Email: Buttondown (subscribe widget).
@@ -162,8 +162,8 @@ When this grows, move the pipeline to a small **FastAPI** worker on Fly.io/Rende
 
 **v3 (Later):**
 
-* HN-style discussions for “artifacts” (self-host or custom).
-* Collaboration features: “review requests,” “reading lists,” “topic watchlists,” personal profiles.
+* HN-style discussions for "artifacts" (self-host or custom).
+* Collaboration features: "review requests," "reading lists," "topic watchlists," personal profiles.
 
 ---
 

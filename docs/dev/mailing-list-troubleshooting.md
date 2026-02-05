@@ -108,4 +108,3 @@ Once the API key issue is resolved:
 2. Confirm you receive the confirmation email
 3. Try sending a test digest: `npm run send-digest monthly-2025-10 -- --preview`
 4. Remove the debug logging from the code for production
-

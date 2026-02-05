@@ -4,7 +4,7 @@ This guide is for developers who want to contribute to the Backporting.ai websit
 
 ## Prerequisites
 
-- Node.js >= 18.14
+- Node.js >= 18.14.1
 - npm
 
 ## Install & run locally
@@ -147,13 +147,15 @@ Note: Buttondown handles all email sending infrastructure, so you don't need to 
 - Check Buttondown dashboard for account status
 - Ensure you're on a plan that allows sending emails
 
+For a comprehensive troubleshooting guide, see [mailing-list-troubleshooting.md](mailing-list-troubleshooting.md).
+
 ## Technology Stack
 
-For detailed information about the technology choices and architecture, see [TECHNOLOGY.md](../../TECHNOLOGY.md).
+For detailed information about the technology choices and architecture, see [technology.md](technology.md).
 
 ## Design Goals
 
-For information about the website's goals and roadmap, see [DESIGN.md](../../DESIGN.md).
+For information about the website's goals and roadmap, see [design.md](design.md).
 
 ## Next steps
 

@@ -21,12 +21,12 @@ Standard GitHub-recognized files that stay at the project root:
 
 ### User-facing documentation (`docs/`)
 
-Project-specific docs aimed at users and contributors (e.g., `DESIGN.md`, `TECHNOLOGY.md`).
+Project-specific docs aimed at non-developer users and contributors. Currently none exist; the convention is documented here for future use.
 
 | Convention | Rule |
 |------------|------|
 | Location | `docs/` (not root, not `docs/dev/`) |
-| Naming | UPPERCASE with underscores (e.g., `MAILING_LIST_TROUBLESHOOTING.md`) |
+| Naming | UPPERCASE with underscores (e.g., `GETTING_STARTED.md`) |
 
 ### Developer documentation (`docs/dev/`)
 
@@ -35,6 +35,9 @@ Project-specific docs aimed at users and contributors (e.g., `DESIGN.md`, `TECHN
 | `INDEX.md` | Central index linking to all dev docs | A new dev doc is added or an existing one is renamed/removed |
 | `development.md` | Setup, project structure, mailing list, tech stack | Dependencies, project structure, commands, or config change |
 | `git-workflow.md` | Commit conventions, branches, PRs, publishing | Git workflow conventions change |
+| `design.md` | Website goals and roadmap | Project goals or roadmap change |
+| `technology.md` | Technology choices, architecture, phased roadmap | Technology decisions or architecture change |
+| `mailing-list-troubleshooting.md` | Common mailing list issues and solutions | New mailing list issues are discovered or resolved |
 
 ### Adding new documentation
 
@@ -69,7 +72,6 @@ Only update what actually changed -- don't rewrite docs unnecessarily.
 - `README.md` and `CONTRIBUTING.md` link to `docs/dev/INDEX.md` for technical details (not directly to sub-docs)
 - User-facing docs in `docs/` are linked from `README.md` or `CONTRIBUTING.md` where relevant
 - Docs within `docs/dev/` link to each other by relative path (e.g., `[Git Workflow](git-workflow.md)`)
-- Docs in `docs/dev/` linking to user-facing docs use `../` (e.g., `../TECHNOLOGY.md`)
 - Docs linking back to root files use `../../` (e.g., `../../README.md`)
 - Skills in `.cursor/skills/` reference docs via `../../../docs/dev/` or `../../../docs/` relative paths
 
