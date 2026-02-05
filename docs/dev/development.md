@@ -25,9 +25,8 @@ npm run preview
 
 ## Project structure
 
-- `src/pages/` – site pages (`/`, `/articles`, `/digests`)
-- `src/pages/api/` – API endpoints (subscription handler)
-- `src/components/` – reusable components (newsletter signup form)
+- `src/pages/` – site pages (`/`, `/about`, `/articles`, `/digests`, `/sitemap.xml`)
+- `src/components/` – reusable components (`NewsletterSignup`, `AuthorSection`)
 - `src/layouts/` – base layout and shared styles
 - `src/content/digests/` – Digest markdown files with frontmatter
 - `src/data/` – Data utilities and resources
