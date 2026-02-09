@@ -4,6 +4,12 @@
 - [x] Review ChatGPT summaries of must-have before first website release to the public
 - [x] Verify mailing list token security (must be no leakage of the credentials)
 - [x] Verify mailing list submission form protection from spam
+- [ ] Create agent for doing paper's research
+    - [ ] Establish Python Development environment
+    - [ ] Develop the agent itself
+    - [ ] Establish command/trigger to run the agent
+- [ ] Establish linter/formatter for the project
+- [ ] Establish autotests for the project (tests themselves, CI/CD pipeline and pre-commit hook)
 - [ ] Develop email digesting
 - [ ] Send out digest to mailing list subscribers
 - [ ] Add interface for adding article via link (let AI parse the link and prepare everything else itself)
