@@ -138,3 +138,15 @@ This project uses **rebase and merge** to keep a clean, linear commit history on
 ## Publishing
 
 Merging to `main` triggers an automatic deploy to GitHub Pages via the [deploy workflow](../../.github/workflows/deploy.yml). Changes go live within a few minutes of the merge completing.
+
+## PR Preview Deployments
+
+Every pull request automatically gets a live preview deployment. Shortly after opening or updating a PR, a bot comment will appear in the PR conversation with a link:
+
+```
+https://backporting.ai/pr-preview/pr-{number}/
+```
+
+The preview is updated on every new commit to the PR branch and removed automatically when the PR is merged or closed.
+
+> **Note:** For PR previews to work, the GitHub Pages source must be set to the `gh-pages` branch. In the repository **Settings → Pages**, set the source to **"Deploy from a branch"** → branch `gh-pages` → folder `/ (root)`. This only needs to be configured once.
