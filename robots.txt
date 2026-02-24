@@ -1,0 +1,7 @@
+# Backporting.ai robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://backporting.ai/sitemap.xml
+
