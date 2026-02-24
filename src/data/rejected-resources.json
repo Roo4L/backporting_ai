@@ -1,0 +1,49 @@
+[
+  {
+    "title": "A Dual-Loop Agent Framework for Automated Vulnerability Reproduction",
+    "url": "https://arxiv.org/abs/2602.05721",
+    "source": "arXiv",
+    "year": 2026,
+    "dateRejected": "2026-02-24",
+    "datePublished": "2026-02-05",
+    "authors": [
+      "Bin Liu",
+      "Yanjie Zhao",
+      "Zhenpeng Chen",
+      "Guoai Xu",
+      "Haoyu Wang"
+    ],
+    "reason": "Primarily about automated vulnerability reproduction, not patch backporting/patch porting."
+  },
+  {
+    "title": "Multi-Docker-Eval: A `Shovel of the Gold Rush' Benchmark on Automatic Environment Building for Software Engineering",
+    "url": "https://arxiv.org/abs/2512.06915",
+    "source": "arXiv",
+    "year": 2025,
+    "dateRejected": "2026-02-24",
+    "datePublished": "2025-12-07",
+    "authors": [
+      "Kelin Fu",
+      "Tianyu Liu",
+      "Zeyu Shang",
+      "Yingwei Ma",
+      "Jian Yang",
+      "Jiaheng Liu",
+      "Kaigui Bian"
+    ],
+    "reason": "General SWE environment-building benchmark; adjacent but not specifically about patch backporting."
+  },
+  {
+    "title": "My answers to the questions I posed about porting open source code with LLMs",
+    "url": "https://simonwillison.net/2026/Jan/11/answers/",
+    "source": "Simon Willison",
+    "year": 2026,
+    "dateRejected": "2026-02-24",
+    "datePublished": "2026-01-11",
+    "authors": [
+      "Simon Willison"
+    ],
+    "reason": "Focuses on cross-language code porting with LLMs, not patch backporting across versions/branches."
+  }
+]
+

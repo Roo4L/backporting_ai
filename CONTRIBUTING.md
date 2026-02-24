@@ -46,8 +46,12 @@ Content can include:
 We maintain a curated list of articles, research papers, blog posts, and other resources related to patch backporting. To suggest a new resource:
 
 1. **Via GitHub Issues**: Create an issue describing the resource you'd like to add
-2. **Via Pull Request**: Add your resource to the appropriate data file in `src/data/` and submit a PR
+2. **Via Pull Request**: Add your resource to `src/data/resources.json` and submit a PR
 3. **Via Email**: Send your suggestion to hello@backporting.ai
+
+#### Handling rejected resources
+
+If a resource is proposed but later rejected during review, please don't delete it entirely. Move it into `src/data/rejected-resources.json` and include a short `reason` so we can avoid re-suggesting it in future discovery passes.
 
 ### What We're Looking For
 
