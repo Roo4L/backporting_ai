@@ -403,6 +403,156 @@
       "DRIVEBENCH",
       "AUTODRIVER"
     ]
+  },
+  {
+    "title": "BackportBench: A Multilingual Benchmark for Automated Backporting of Patches",
+    "url": "https://arxiv.org/abs/2512.01396",
+    "source": "arXiv",
+    "year": 2025,
+    "dateAdded": "2026-02-24",
+    "datePublished": "2025-12-01",
+    "authors": [
+      "Zhiqing Zhong",
+      "Jiaming Huang",
+      "Pinjia He"
+    ],
+    "tags": [
+      "research",
+      "benchmark",
+      "backporting",
+      "patch-backporting",
+      "evaluation",
+      "Docker",
+      "PyPI",
+      "Maven",
+      "npm",
+      "LLM",
+      "agent"
+    ]
+  },
+  {
+    "title": "CVE Breadcrumbs: Tracking Vulnerabilities Through Versioned Apache Libraries",
+    "url": "https://arxiv.org/abs/2512.02259",
+    "source": "arXiv",
+    "year": 2025,
+    "dateAdded": "2026-02-24",
+    "datePublished": "2025-12-01",
+    "authors": [
+      "Derek Garcia",
+      "Briana Lee",
+      "Ibrahim Matar",
+      "David Rickards",
+      "Andrew Zilnicki"
+    ],
+    "tags": [
+      "research",
+      "security",
+      "vulnerability-management",
+      "CVE",
+      "CWE",
+      "versioning",
+      "patch-management",
+      "backporting",
+      "Apache"
+    ]
+  },
+  {
+    "title": "Tracking kernel commits across branches",
+    "url": "http://www.kroah.com/log/blog/2025/12/15/tracking-kernel-commits-across-branches/",
+    "source": "kroah.com",
+    "year": 2025,
+    "dateAdded": "2026-02-24",
+    "datePublished": "2025-12-15",
+    "authors": [
+      "Greg Kroah-Hartman"
+    ],
+    "tags": [
+      "blog",
+      "Linux-kernel",
+      "stable",
+      "backporting",
+      "commit-tracking",
+      "CVE"
+    ]
+  },
+  {
+    "title": "Backport-action v4.0.0 (Node 24 requirement)",
+    "url": "https://github.com/korthout/backport-action/releases/tag/v4.0.0",
+    "source": "GitHub Releases",
+    "year": 2025,
+    "dateAdded": "2026-02-24",
+    "datePublished": "2025-12-13",
+    "authors": [],
+    "tags": [
+      "OSS",
+      "tooling",
+      "GitHub-Actions",
+      "backporting",
+      "automation",
+      "release"
+    ]
+  },
+  {
+    "title": "Backport-action v4.0.1 (fix: pass env vars to git)",
+    "url": "https://github.com/korthout/backport-action/releases/tag/v4.0.1",
+    "source": "GitHub Releases",
+    "year": 2025,
+    "dateAdded": "2026-02-24",
+    "datePublished": "2025-12-15",
+    "authors": [],
+    "tags": [
+      "OSS",
+      "tooling",
+      "GitHub-Actions",
+      "backporting",
+      "automation",
+      "release"
+    ]
+  },
+  {
+    "title": "Patch-to-PoC: A Systematic Study of Agentic LLM Systems for Linux Kernel N-Day Reproduction",
+    "url": "https://arxiv.org/abs/2602.07287",
+    "source": "arXiv",
+    "year": 2026,
+    "dateAdded": "2026-02-24",
+    "datePublished": "2026-02-07",
+    "authors": [
+      "Juefei Pu",
+      "Xingyu Li",
+      "Zhengchuan Liang",
+      "Jonathan Cox",
+      "Yifan Wu",
+      "Kareem Shehada",
+      "Arrdya Srivastav",
+      "Zhiyun Qian"
+    ],
+    "tags": [
+      "research",
+      "security",
+      "Linux-kernel",
+      "LLM",
+      "agent",
+      "n-day-vulnerabilities",
+      "vulnerability-reproduction",
+      "patch-analysis"
+    ]
+  },
+  {
+    "title": "Backport-action v4.1.0 (minified bundle + issue ref fix)",
+    "url": "https://github.com/korthout/backport-action/releases/tag/v4.1.0",
+    "source": "GitHub Releases",
+    "year": 2026,
+    "dateAdded": "2026-02-24",
+    "datePublished": "2026-02-15",
+    "authors": [],
+    "tags": [
+      "OSS",
+      "tooling",
+      "GitHub-Actions",
+      "backporting",
+      "automation",
+      "release"
+    ]
   }
 ]
 
